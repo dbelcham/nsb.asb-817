@@ -15,9 +15,6 @@ configuration.Recoverability().Delayed(settings => settings.NumberOfRetries(0));
 configuration.Recoverability().Immediate(settings => settings.NumberOfRetries(0));
 configuration.EnableInstallers();
 
-// var unitOfWorkSettings = configuration.UnitOfWork();
-// unitOfWorkSettings.WrapHandlersInATransactionScope();
-
 var endpoint = await Endpoint.Start(configuration);
 await endpoint.SendLocal(new Kickoff());
 Console.WriteLine("Kickoff message sent");
